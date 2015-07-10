@@ -1,4 +1,4 @@
-require "benchmark_email_api/version"
+# require "benchmark_email_api/version"
 require "net/http"
 require "net/https"
 require "openssl"
@@ -6,8 +6,8 @@ require "xmlrpc/client"
 
 module BenchmarkEmailApi
   class Client
-    def initialize(username,password,apikey)
-      @server = XMLRPC::Client.new2(apikey)
+    def initialize(username,password,api_url)
+      @server = XMLRPC::Client.new2(api_url)
       $ok, result = @server.call2('login', username, password)
       if $ok
         @token = result
