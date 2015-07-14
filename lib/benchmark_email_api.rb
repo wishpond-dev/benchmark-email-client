@@ -6,7 +6,7 @@ require "xmlrpc/client"
 
 module BenchmarkEmailApi
   class Client
-    def initialize(username,password,api_url)
+    def initialize(username, password, api_url)
       @server = XMLRPC::Client.new2(api_url)
       $ok, result = @server.call2('login', username, password)
       if $ok
@@ -16,6 +16,7 @@ module BenchmarkEmailApi
         puts "Error Description: #{result.faultString}"
       end
      end
+
      def method_missing(api_method, *args)
       $ok, result = @server.call2(api_method.to_s, @token, *args)
       return result
