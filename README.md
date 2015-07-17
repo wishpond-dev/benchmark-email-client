@@ -27,7 +27,7 @@ Or install it yourself as:
 ## Instantiate a **Client** object.
 
 ```ruby
-BMEApi = BenchmarkEmialApi::Client.new(username,password, api_url)
+BMEApi = BenchmarkEmailApi::Client.new(username, password, api_url)
 ```
 
 
